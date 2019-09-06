@@ -4,12 +4,12 @@ class NewTodo extends React.Component {
   state = { text: '' }
 
   handleText = e => {
-    this.setState({ text: e.target.value.trim() })
+    this.setState({ text: e.target.value })
   }
 
   validateTodo = e => {
     e.preventDefault()
-    const todo = this.state.text
+    const todo = this.state.text.trim()
     if (todo.length > 0) {
       this.props.onNewTodo({ text: todo, completed: false })
       this.setState({ text: '' })
