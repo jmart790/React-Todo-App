@@ -1,0 +1,6 @@
+.todo .hide {
+  visibility: hidden;
+}
+.todo:hover .hide {
+  visibility: visible;
+}
