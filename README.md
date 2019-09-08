@@ -11,7 +11,7 @@ Custom Styling by Joshua Martinez
 App.js is the work horse and holds the state of todos.
 App.js also drills down props and functions so state can change appropriately.
 
-<img width="519" alt="To-Do screen 1" src="https://user-images.githubusercontent.com/42789991/64496139-d8ae1180-d26f-11e9-81ac-5ef3183a5c09.png">
+<img width="519" alt="Screen Shot 2019-09-08 at 7 38 56 PM" src="https://user-images.githubusercontent.com/42789991/64496204-5a05a400-d270-11e9-98b7-3d4ae8bbb3d6.png">
 
 <img width="520" alt="To-Do screen 4" src="https://user-images.githubusercontent.com/42789991/64496149-e5326a00-d26f-11e9-8eb5-902bb62413d3.png">
 
