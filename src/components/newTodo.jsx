@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/newTodo.css'
 
 class NewTodo extends React.Component {
   state = { text: '' }
@@ -20,10 +21,21 @@ class NewTodo extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.validateTodo}>
-        <input type='text' value={this.state.text} onChange={this.handleText} autoFocus />
-        <button type='submit'>+</button>
-      </form>
+      <div>
+        <form className='new-todo-container' onSubmit={this.validateTodo}>
+          <input
+            className='new-todo-input'
+            type='text'
+            value={this.state.text}
+            onChange={this.handleText}
+            autoFocus
+            placeholder='add new to-do'
+          />
+          <button className='new-todo-submit' type='submit'>
+            +
+          </button>
+        </form>
+      </div>
     )
   }
 }
