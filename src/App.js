@@ -7,20 +7,24 @@ import './styles/app.css'
 class App extends React.Component {
   state = {
     todos: [],
-    countText: '0 items left'
+    countText: { count: 0, text: 'items left' }
   }
 
   handleCount = () => {
     const count = this.state.todos.filter(todo => !todo.completed).length
     const plural = count === 1 ? 'item' : 'items'
-    const countText = `${count} ${plural} left`
+    const text = `${plural} left`
+    const countText = { count, text }
     this.setState({ countText })
   }
 
   handleDelete = todoId => {
-    const todos = [...this.state.todos]
-    todos.splice(todoId, 1)
-    this.setState({ todos }, this.handleCount)
+    const del = confirm('Are you sure you want to delete?') //eslint-disable-line
+    if (del) {
+      const todos = [...this.state.todos]
+      todos.splice(todoId, 1)
+      this.setState({ todos }, this.handleCount)
+    }
   }
 
   handleCompleted = todoId => {
@@ -37,7 +41,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className='app-container'>
         <Navbar countText={this.state.countText} />
         <NewTodo onNewTodo={this.handleNewTodo} />
         <TodoList
@@ -45,7 +49,7 @@ class App extends React.Component {
           onCompleted={this.handleCompleted}
           onDelete={this.handleDelete}
         />
-      </React.Fragment>
+      </div>
     )
   }
 }
