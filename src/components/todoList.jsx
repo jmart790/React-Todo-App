@@ -1,20 +1,27 @@
 import React from 'react'
+import '../styles/todoList.css'
 
-class TodoList extends React.Component {
-  render() {
-    return (
+const TodoList = props => {
+  return (
+    <div className='todo-list-container'>
       <ul>
-        {this.props.todoList.map((todo, id) => (
-          <li key={id} className='todo'>
-            {todo.text}
-            <button onClick={() => this.props.onCompleted(id)}>{todo.completed ? '✓' : ' '}</button>
-            <button className='hide' onClick={() => this.props.onDelete(id)}>
-              Remove
-            </button>
-          </li>
+        {props.todoList.map((todo, id) => (
+          <React.Fragment>
+            <li key={id} className='todo'>
+              <button className='complete-btn' onClick={() => props.onCompleted(id)}>
+                {todo.completed ? '✓' : ' '}
+              </button>
+              <span className={todo.completed ? 'todo-completed' : ''}>{todo.text}</span>
+              <button className='delete-btn hide' onClick={() => props.onDelete(id)}>
+                ✗
+              </button>
+            </li>
+            <div className={id < props.todoList.length - 1 ? 'todo-divider' : ''} />
+          </React.Fragment>
         ))}
       </ul>
-    )
-  }
+    </div>
+  )
 }
+
 export default TodoList
